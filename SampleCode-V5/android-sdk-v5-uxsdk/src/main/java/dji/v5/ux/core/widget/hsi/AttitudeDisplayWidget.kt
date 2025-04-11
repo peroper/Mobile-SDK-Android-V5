@@ -34,7 +34,7 @@ open class AttitudeDisplayWidget @JvmOverloads constructor(context: Context?, at
     /**
      * 飞行器相对home点的高度
      */
-    private var mAltitude = 0.0
+    public var mAltitude = 0.0
 
     /**
      * home点的高度
@@ -64,6 +64,17 @@ open class AttitudeDisplayWidget @JvmOverloads constructor(context: Context?, at
         super.onDetachedFromWindow()
         if (!isInEditMode) {
             widgetModel.cleanup()
+        }
+    }
+
+    fun gfOverrideUpdateAltitude(altitude: Double?) {
+        if (altitude != null) {
+            mAttitudeDashBoard?.gfOverrideHeight = true
+            mAttitudeDashBoard?.gfOverrideUpdateAltitude(altitude.toFloat())
+            mAttitudeDashBoard?.gfOverrideUpdateAltitudeText("rel. ground")
+        } else {
+            mAttitudeDashBoard?.gfOverrideHeight = false
+            mAttitudeDashBoard?.gfOverrideUpdateAltitudeText("rel. start")
         }
     }
 

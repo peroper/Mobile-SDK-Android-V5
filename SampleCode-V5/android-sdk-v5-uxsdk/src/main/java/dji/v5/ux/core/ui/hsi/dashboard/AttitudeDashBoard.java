@@ -85,10 +85,21 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
      */
     private float mSpeedZ;
 
+    public boolean gfOverrideHeight;
+
+    public void gfOverrideUpdateAltitude(float newAltitude) {
+        mHeight = newAltitude;
+        setCurrentValue(newAltitude);
+    }
+
+    public void gfOverrideUpdateAltitudeText(String newAltitudeText) {
+        mAttributeName = newAltitudeText;
+    }
+
     /**
      * 当前飞行高度
      */
-    private float mHeight;
+    public float mHeight;
 
     //    /**
     //     * 返航高度

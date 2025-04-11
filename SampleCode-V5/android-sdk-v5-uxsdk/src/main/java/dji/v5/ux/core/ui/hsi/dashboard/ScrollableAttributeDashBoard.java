@@ -48,6 +48,8 @@ public abstract class ScrollableAttributeDashBoard extends View {
      */
     private static final int DASH_BOARD_ALIGN_LEFT = 0;
 
+    private static final int GF_TEXT_OFFSET = 60;
+
     /**
      * 文字在右侧
      */
@@ -59,9 +61,9 @@ public abstract class ScrollableAttributeDashBoard extends View {
     /**
      * 属性名称
      */
-    private final String mAttributeName;
+    public String mAttributeName;
 
-    private float mAttributePadding;
+    public float mAttributePadding;
 
     /**
      * 每个小刻度的偏移值
@@ -504,7 +506,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
     }
 
     protected int getMinWidth() {
-        return mPointerWidth + mFrameworkPaddingStart + mPointerLineInnerWidth + mTextPadding + mFrameworkStrokeWidth;
+        return mPointerWidth + mFrameworkPaddingStart + mPointerLineInnerWidth + mTextPadding + mFrameworkStrokeWidth + GF_TEXT_OFFSET;
     }
 
     protected int getFrameworkHeight() {
@@ -811,7 +813,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
         // 让属性单位紧贴顶部
         float unitTextOffset;
         if (alignLeft) {
-            unitTextOffset = mPointerWidth - len - mAttributePadding;
+            unitTextOffset = GF_TEXT_OFFSET + mPointerWidth - len - mAttributePadding;
         } else {
             unitTextOffset = -mPointerWidth + mAttributePadding;
         }
@@ -834,7 +836,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
         float len = paint.measureText(text);
         float attrTextOffset;
         if (alginLeft) {
-            attrTextOffset = mPointerWidth - len - mAttributePadding;
+            attrTextOffset = GF_TEXT_OFFSET - mPointerWidth - len - mAttributePadding;
         } else {
             attrTextOffset = -mPointerWidth + mAttributePadding;
         }
