@@ -270,7 +270,9 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
             updateWidget();
         }));
         mCompositeDisposable.add(mWidgetModel.getAltitudeProcessor().toFlowable().subscribeOn(AndroidSchedulers.mainThread()).subscribe(altitude -> {
-            mHeight = altitude.floatValue();
+            if (!gfOverrideHeight) {
+                mHeight = altitude.floatValue();
+            }
             setCurrentValue(mHeight);
         }));
         mCompositeDisposable.add(mWidgetModel.getGoHomeHeightProcessor().toFlowable().subscribe(integer -> {

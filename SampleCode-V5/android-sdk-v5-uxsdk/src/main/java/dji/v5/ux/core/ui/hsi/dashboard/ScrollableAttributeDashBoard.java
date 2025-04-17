@@ -63,7 +63,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
      */
     public String mAttributeName;
 
-    public float mAttributePadding;
+    private float mAttributePadding;
 
     /**
      * 每个小刻度的偏移值
@@ -836,7 +836,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
         float len = paint.measureText(text);
         float attrTextOffset;
         if (alginLeft) {
-            attrTextOffset = GF_TEXT_OFFSET - mPointerWidth - len - mAttributePadding;
+            attrTextOffset = GF_TEXT_OFFSET + mPointerWidth - len - mAttributePadding;
         } else {
             attrTextOffset = -mPointerWidth + mAttributePadding;
         }
