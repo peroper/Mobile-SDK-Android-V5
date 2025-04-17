@@ -30,7 +30,7 @@
         app:uxsdk_max_value="400"
         app:uxsdk_min_value="0"
         app:uxsdk_name="SPD"
-        app:uxsdk_name_text_size="@dimen/uxsdk_7_dp"
+        app:uxsdk_name_text_size="@dimen/uxsdk_8_dp"
         app:uxsdk_offset_per_unit="0.2"
         app:uxsdk_pointer_divider_bottom_width="@dimen/uxsdk_29_dp"
         app:uxsdk_pointer_divider_top_width="@dimen/uxsdk_37_dp"
@@ -41,7 +41,7 @@
         app:uxsdk_pointer_width="@dimen/uxsdk_52_dp"
         app:uxsdk_property_color="@color/uxsdk_green_in_dark"
         app:uxsdk_show_calibration_framework="false"
-        app:uxsdk_unit_text_size="@dimen/uxsdk_7_dp" />
+        app:uxsdk_unit_text_size="@dimen/uxsdk_8_dp" />
 
     <dji.v5.ux.core.ui.component.StrokeTextView
         android:id="@+id/pfd_ws_value"

@@ -85,10 +85,21 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
      */
     private float mSpeedZ;
 
+    public boolean gfOverrideHeight;
+
+    public void gfOverrideUpdateAltitude(float newAltitude) {
+        mHeight = newAltitude;
+        setCurrentValue(newAltitude);
+    }
+
+    public void gfOverrideUpdateAltitudeText(String newAltitudeText) {
+        mAttributeName = newAltitudeText;
+    }
+
     /**
      * 当前飞行高度
      */
-    private float mHeight;
+    public float mHeight;
 
     //    /**
     //     * 返航高度
@@ -259,7 +270,9 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
             updateWidget();
         }));
         mCompositeDisposable.add(mWidgetModel.getAltitudeProcessor().toFlowable().subscribeOn(AndroidSchedulers.mainThread()).subscribe(altitude -> {
-            mHeight = altitude.floatValue();
+            if (!gfOverrideHeight) {
+                mHeight = altitude.floatValue();
+            }
             setCurrentValue(mHeight);
         }));
         mCompositeDisposable.add(mWidgetModel.getGoHomeHeightProcessor().toFlowable().subscribe(integer -> {
