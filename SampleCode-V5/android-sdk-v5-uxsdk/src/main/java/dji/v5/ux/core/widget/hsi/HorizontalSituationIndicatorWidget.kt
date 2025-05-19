@@ -46,6 +46,10 @@ open class HorizontalSituationIndicatorWidget @JvmOverloads constructor(
         binding.pfdHsiGimbalPitchDisplay.visibility = if (isEnable) VISIBLE else GONE
     }
 
+    fun gfOverrideUpdateAltitude(altitude: Double?) {
+        binding.pfdHsiAttitudeDisplay.gfOverrideUpdateAltitude(altitude)
+    }
+
     sealed class ModelState
 
     override fun getCameraIndex(): ComponentIndexType {
