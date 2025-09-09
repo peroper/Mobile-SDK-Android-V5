@@ -328,7 +328,9 @@ public final class CameraUtil {
      * @return The lens index
      */
     public static CameraLensType getLensIndex(CameraVideoStreamSourceType streamSource) {
-        if (streamSource == CameraVideoStreamSourceType.WIDE_CAMERA) {
+        if (streamSource == CameraVideoStreamSourceType.RGB_CAMERA) {
+          return CameraLensType.CAMERA_LENS_RGB;
+        } else if (streamSource == CameraVideoStreamSourceType.WIDE_CAMERA) {
             return CameraLensType.CAMERA_LENS_WIDE;
         } else if (streamSource == CameraVideoStreamSourceType.INFRARED_CAMERA) {
             return CameraLensType.CAMERA_LENS_THERMAL;

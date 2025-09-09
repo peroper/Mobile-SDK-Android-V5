@@ -499,7 +499,7 @@ open class FPVWidget @JvmOverloads constructor(
                 it,
                 width,
                 height,
-                ICameraStreamManager.ScaleType.CENTER_INSIDE
+                ICameraStreamManager.ScaleType.CENTER_CROP
             )
         }
     }
