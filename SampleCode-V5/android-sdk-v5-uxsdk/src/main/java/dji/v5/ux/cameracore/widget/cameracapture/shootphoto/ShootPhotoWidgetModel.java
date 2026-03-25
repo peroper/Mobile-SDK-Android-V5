@@ -246,7 +246,8 @@ public class ShootPhotoWidgetModel extends WidgetModel implements ICameraIndex {
         if (!canStartShootingPhoto.getValue()) {
             return Completable.complete();
         }
-        return djiSdkModel.performActionWithOutResult(KeyTools.createKey(CameraKey.KeyStartShootPhoto, cameraIndex));
+        return djiSdkModel.setValue(KeyTools.createKey(CameraKey.KeyCameraMode, cameraIndex), CameraMode.PHOTO_NORMAL)
+                .andThen(djiSdkModel.performActionWithOutResult(KeyTools.createKey(CameraKey.KeyStartShootPhoto, cameraIndex)));
     }
 
     /**
